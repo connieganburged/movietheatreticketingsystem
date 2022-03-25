@@ -2,6 +2,10 @@
 Cinema
 By Connie
 """
+from tkinter import N
+
+
+seats = (([ 3,4], [ ], [ ]), ([ ], [ ], [ ]), ([ ], [ ], [ ]))
 print ("Hello, welcome to Prime Cineplex. How can I help you today?")
 info = None
 while info not in ('yes','no'):
@@ -29,10 +33,34 @@ match choice:
             case 'd':
                 print('2D: 15,000 3D: 16,000')
     case '4':
+        #Display movies
         print ('Here are the movie choices. 1. Barbie 2. Zootopia 3. Annabelle 4. Florence Maybe 5. Shang-Chi.')
-        movie_choice = input ("Choose 1 2 3 4 or 5: ")
+        #validate movie choice
+        movie_choice = None
+        while movie_choice not in ('1', '2', '3', '4', '5'):
+            movie_choice = input ("Choose 1 2 3 4 or 5: ")
+        movie_choice = int(movie_choice)
+        
+        #Display movies
+        print ('Here are the sessions. 1. Morning 2. Afternoon 3. Evening')
+        #validate movie choice
+        session_choice = None
+        while session_choice not in ('1', '2', '3'):
+           session_choice = input ("Choose 1 2 or 3: ")
+        session_choice = int(session_choice)
 
+        #Display
+        print ('Ava.. seats')
+        seats_text = ''
+        for seat in range(1,21):
+            if seat in seats[movie_choice-1][session_choice-1]:
+                seats_text = seats_text + ' X'
+            else:
+                seats_text = seats_text + f' {seat}'
+        print (seats_text)
 
+        while seat not in (1,21):
+            print ('There is an error')
 
 
 print('Thank you. Have a nice day!')
