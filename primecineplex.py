@@ -50,7 +50,7 @@ match choice:
         session_choice = int(session_choice)
 
         #Display
-        print ('Ava.. seats')
+        print ('Available seats')
         seats_text = ''
         for seat in range(1,21):
             if seat in seats[movie_choice-1][session_choice-1]:
