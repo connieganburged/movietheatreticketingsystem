@@ -4,9 +4,10 @@ By Connie
 """
 from tkinter import N
 
+#Seats 
+seats = (([3,4], [ ], [ ]), ([ ], [ ], [ ]), ([ ], [ ], [ ]))
 
-seats = (([ 3,4], [ ], [ ]), ([ ], [ ], [ ]), ([ ], [ ], [ ]))
-print ("Hello, welcome to Prime Cineplex. How can I help you today?")
+   
 info = None
 while info not in ('yes','no'):
     info= input('Would you like to connect to a live admin? (yes/no): ')
@@ -15,6 +16,7 @@ if info == 'yes':
 if info == 'no':
     choice = input('1. Location and Work Hours, 2. Phone Number and Contact, 3. Prices 4. Book a Movie: ')
 
+#Provide the service they requested
 match choice:
     case '1':
         print('We are located in Encanto Tower and Zaisan Hill from 10:00-0:00')
@@ -38,8 +40,7 @@ match choice:
         #validate movie choice
         movie_choice = None
         while movie_choice not in ('1', '2', '3', '4', '5'):
-            movie_choice = input ("Choose 1 2 3 4 or 5: ")
-        movie_choice = int(movie_choice)
+            movie_choice = input ("Choose 1 2 3 4 or 5: ")        movie_choice = int(movie_choice)
         
         #Display movies
         print ('Here are the sessions. 1. Morning 2. Afternoon 3. Evening')
@@ -49,7 +50,7 @@ match choice:
            session_choice = input ("Choose 1 2 or 3: ")
         session_choice = int(session_choice)
 
-        #Display
+        #Display seats
         print ('Available seats')
         seats_text = ''
         for seat in range(1,21):
@@ -59,8 +60,8 @@ match choice:
                 seats_text = seats_text + f' {seat}'
         print (seats_text)
 
-        while seat not in (1,21):
-            print ('There is an error')
-
-
+        #Seat number
+        chosen_seat = None
+        while chosen_seat == None:
+            chosen_seat = input('What is your seat choice?')
 print('Thank you. Have a nice day!')
