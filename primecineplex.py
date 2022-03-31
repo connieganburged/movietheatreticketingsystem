@@ -36,11 +36,12 @@ match choice:
                 print('2D: 15,000 3D: 16,000')
     case '4':
         #Display movies
-        print ('Here are the movie choices. 1. Barbie 2. Zootopia 3. Annabelle 4. Florence Maybe 5. Shang-Chi.')
+        print ('Here are the movie choices. 1. Barbie 2. Zootopia 3. Annabelle')
         #validate movie choice
         movie_choice = None
-        while movie_choice not in ('1', '2', '3', '4', '5'):
-            movie_choice = input ("Choose 1 2 3 4 or 5: ")        movie_choice = int(movie_choice)
+        while movie_choice not in ('1', '2', '3'):
+            movie_choice = input ("Choose 1 2 or 3")        
+        movie_choice = int(movie_choice)
         
         #Display movies
         print ('Here are the sessions. 1. Morning 2. Afternoon 3. Evening')
@@ -62,6 +63,17 @@ match choice:
 
         #Seat number
         chosen_seat = None
-        while chosen_seat == None:
-            chosen_seat = input('What is your seat choice?')
+        while chosen_seat not in range(1,21):
+            try: 
+                chosen_seat = int(input("What is your seat choice: "))
+            except: 
+                print("Sorry, that is not valid")
+                continue
+            if chosen_seat not in range(1,21): 
+                print("Seat not available, choose a different seat")
+                chosen_seat = None
+
+#Ask if they want to rebook
+
+
 print('Thank you. Have a nice day!')
